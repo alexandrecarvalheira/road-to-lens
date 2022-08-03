@@ -1,8 +1,8 @@
 import Link from "next/link";
 export default function Profile(props) {
   const profile = props.profile;
+  const follow = props.follow;
 
-  // When displayFullProfile is true, we show more info.
   const displayFullProfile = props.displayFullProfile;
 
   return (
@@ -45,6 +45,9 @@ export default function Profile(props) {
               <p className="mt-2 text-xs text-slate-500">
                 following: {profile.stats.totalFollowing} followers:{" "}
                 {profile.stats.totalFollowers}
+              </p>
+              <p className="mt-2 text-xs text-slate-500">
+                {follow ? "following" : "not following"}
               </p>
             </div>
           </div>

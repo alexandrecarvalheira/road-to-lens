@@ -1,17 +1,16 @@
+import { Timeline } from "flowbite-react";
+
 export default function Post(props) {
   const post = props.post;
-
+  let date = new Date(post.createdAt);
   return (
-    <div className="p-8">
-      <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden md:max-w-2xl">
-        <div className="md:flex">
-          <div className="p-8">
-            <p className="mt-2 text-xs text-slate-500 whitespace-pre-line">
-              {post.metadata.content}
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Timeline>
+      <Timeline.Item className="">
+        <Timeline.Content>
+          <Timeline.Time>{date.toString().substring(0, 21)}</Timeline.Time>
+          <Timeline.Body>{post.metadata.content}</Timeline.Body>
+        </Timeline.Content>
+      </Timeline.Item>
+    </Timeline>
   );
 }

@@ -4,7 +4,13 @@ export default gql`
   query(
     $request: SingleProfileQueryRequest!
     $publicationsRequest: PublicationsQueryRequest!
+    $followRequest: DoesFollowRequest!
   ) {
+    doesFollow(request: $followRequest) {
+      followerAddress
+      profileId
+      follows
+    }
     publications(request: $publicationsRequest) {
       items {
         __typename
