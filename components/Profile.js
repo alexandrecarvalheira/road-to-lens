@@ -1,5 +1,3 @@
-// components/Profile.js
-
 import Link from "next/link";
 export default function Profile(props) {
   const profile = props.profile;
@@ -32,7 +30,7 @@ export default function Profile(props) {
               )}
             </div>
             <div className="p-8">
-              <div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
+              <div className="uppercase tracking-wide text-sm text-green-600 font-semibold">
                 {profile.handle}
                 {displayFullProfile &&
                   profile.name &&

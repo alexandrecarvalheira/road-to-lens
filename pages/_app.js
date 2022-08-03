@@ -1,11 +1,14 @@
 import "../styles/globals.css";
 import { ApolloProvider } from "@apollo/client";
 import client from "../apollo-client";
+import VerifyConnection from "../components/VerifyConnection";
 
 function MyApp({ Component, pageProps }) {
   return (
     <ApolloProvider client={client}>
-      <Component {...pageProps} />
+      <VerifyConnection>
+        <Component {...pageProps} />
+      </VerifyConnection>
     </ApolloProvider>
   );
 }

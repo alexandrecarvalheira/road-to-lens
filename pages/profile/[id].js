@@ -1,8 +1,7 @@
-import { useQuery, useMutation } from "@apollo/client";
+import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import fetchProfileQuery from "../../queries/fetchProfileQuery.js";
-import Profile from "../../components/Profile.js";
-import Post from "../../components/Post.js";
+import Perfil from "../perfil";
 
 export default function ProfilePage() {
   const router = useRouter();
@@ -19,15 +18,8 @@ export default function ProfilePage() {
     },
   });
 
-  if (loading) return "Loading..";
+  if (loading) return "";
   if (error) return `Error! ${error.message}`;
 
-  return (
-    <div className="flex flex-col p-8 items-center">
-      <Profile profile={data.profile} displayFullProfile={true} />
-      {data.publications.items.map((post, idx) => {
-        return <Post key={idx} post={post} />;
-      })}
-    </div>
-  );
+  return <Perfil data={data} />;
 }
