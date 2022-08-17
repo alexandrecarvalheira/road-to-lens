@@ -1,10 +1,10 @@
 import Link from "next/link";
+import FollowButton from "./FollowButton";
 export default function Profile(props) {
   const profile = props.profile;
   const follow = props.follow;
 
   const displayFullProfile = props.displayFullProfile;
-
   return (
     <div className="p-8">
       <Link href={`/profile/${profile.id}`}>
@@ -47,7 +47,13 @@ export default function Profile(props) {
                 {profile.stats.totalFollowers}
               </p>
               <p className="mt-2 text-xs text-slate-500">
-                {follow ? "following" : "not following"}
+                {follow === null ? (
+                  ""
+                ) : follow ? (
+                  "following"
+                ) : (
+                  <FollowButton profileId={profile.id} />
+                )}
               </p>
             </div>
           </div>

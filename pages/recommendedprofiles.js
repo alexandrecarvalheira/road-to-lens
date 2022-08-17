@@ -19,6 +19,7 @@ export default function RecommendedProfiles() {
             key={profile.id}
             profile={profile}
             displayFullProfile={false}
+            follow={null}
           />
         );
       })}
