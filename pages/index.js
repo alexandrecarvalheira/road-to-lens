@@ -3,6 +3,7 @@ import Timeline from "../components/Timeline.js";
 import fetchDefaultProfile from "../queries/fetchDefaultProfile.js";
 import { useEffect, useState } from "react";
 import { ethers } from "ethers";
+import RecommendedProfiles from "./recommendedprofiles.js";
 
 export default function Home() {
   const [currentAccount, setCurrentAccount] = useState("");
@@ -22,7 +23,7 @@ export default function Home() {
   });
 
   if (loading) return "";
-  if (error) return `Error! ${timelineError.message}`;
+  if (error) return <RecommendedProfiles />;
   const profileId = data.defaultProfile.id;
   return <Timeline profileId={profileId} />;
 }
